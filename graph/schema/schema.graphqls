@@ -1,0 +1,48 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Query {
+  bookings: [Booking!]!
+  cabs: [Cab!]!
+}
+
+type Mutation {
+  createUser(input: NewUser!): User!
+  createCab(input: NewCab!): Cab!
+  createBooking(input: NewBooking!): Booking!
+}
+
+
+# ------------------------my schema--------------------
+
+
+type User {
+  id: ID!
+  name: String!
+}
+
+type Cab {
+  id: ID!
+  location: String!
+}
+
+type Booking {
+  id: ID!
+  from: String!
+  to: String!
+  user: User!
+}
+
+input NewUser {
+  name: String!
+}
+
+input NewCab {
+  location: String!
+}
+
+input NewBooking {
+  from: String!
+  to: String!
+}
